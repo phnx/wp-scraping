@@ -1,4 +1,4 @@
-Wordpress Entry Scraping (July 2016)
+Wordpress Entry Scraping with R (July 2016)
 ==============
 
 Basic requirement: an XML file exported from Wordpress, default settings
