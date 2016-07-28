@@ -144,7 +144,7 @@ length(freq)
 ord <- order(freq,decreasing=TRUE)
 #List all terms in decreasing order of freq and write to disk
 freq[ord]
-write.csv(freq[ord],"word_freq.csv")
+write.csv(freq[ord],"../analysis/word_freq.csv")
 
 #Set parameters for Gibbs sampling
 burnin <- 4000
@@ -162,13 +162,13 @@ ldaOut <-LDA(dtm,k, method="Gibbs", control=list(nstart=nstart, seed = seed, bes
 #write out results
 #docs to topics
 ldaOut.topics <- as.matrix(topics(ldaOut))
-write.csv(ldaOut.topics,file=paste("LDAGibbs",k,"DocsToTopics.csv"))
+write.csv(ldaOut.topics,file=paste("../analysis/LDAGibbs",k,"DocsToTopics.csv"))
 
 #top 6 terms in each topic
 ldaOut.terms <- as.matrix(terms(ldaOut,6))
-write.csv(ldaOut.terms,file=paste("LDAGibbs",k,"TopicsToTerms.csv"))
+write.csv(ldaOut.terms,file=paste("../analysis/LDAGibbs",k,"TopicsToTerms.csv"))
 
 #probabilities associated with each topic assignment
 topicProbabilities <- as.data.frame(ldaOut@gamma)
-write.csv(topicProbabilities,file=paste("LDAGibbs",k,"TopicProbabilities.csv"))
+write.csv(topicProbabilities,file=paste("../analysis/LDAGibbs",k,"TopicProbabilities.csv"))
 
